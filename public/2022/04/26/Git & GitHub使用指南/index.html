@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="zhaixuetan&#39;s blog">
+  <meta name="keyword" content="learning AI together">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Git &amp; GitHub使用指南 | learning AI together
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>learning AI together</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/series/" class="item-link">Series</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/series/" class="menu-link">Series</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Git & GitHub使用指南</h2>
+  <p class="post-date">2022-04-26</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><hr>
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p><strong>1. Git &amp; GitHub的发展历史</strong></p>
+<p>Linux 之父 Linus 在 1991 年创建开源的 Linux 操作系统之后，Linus 花了十天时间用 C 语言写好了一个开源的版本控制系统（Version Control System），就是著名的 Git。</p>
+<p>2007 年旧金山三个年轻人觉得 Git 是个好东西，就搞了一个公司名字叫 GitHub，第二年上线了使用 Ruby 编写的同名网站 GitHub，这是一个基于 Git 的免费代码托管网站（有付费服务）</p>
+<p>Github被微软收购</p>
+<hr>
+<h3 id="Github-Desk简单操作"><a href="#Github-Desk简单操作" class="headerlink" title="Github Desk简单操作"></a>Github Desk简单操作</h3><p><i class="fa fa-arrow-circle-down" aria-hidden="true"> 教学步骤</i>：</p>
+<p><strong>1. 下载安装Github</strong></p>
+<p><a target="_blank" rel="noopener" href="https://desktop.github.com/">https://desktop.github.com/</a></p>
+<p><strong>2. 注册账号</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a></p>
+<p><strong>3. 新建项目</strong> </p>
+<p>启动Github，菜单栏File，选择 New repository，</p>
+<p>填写Name，选择Local path</p>
+<p><strong>4. 文件夹更新项目内容</strong> </p>
+<p>提交Summit</p>
+<p><strong>5. 发布项目</strong> </p>
+<p>菜单栏New repository，选择Push </p>
+<hr>
+<h3 id="Git简单操作"><a href="#Git简单操作" class="headerlink" title="Git简单操作"></a>Git简单操作</h3><p><i class="fa fa-arrow-circle-down" aria-hidden="true"> 教学步骤</i>：</p>
+<p><strong>1. Start a project</strong></p>
+<p>登录Github，<a target="_blank" rel="noopener" href="https://github.com/%EF%BC%8C">https://github.com/，</a> 点击Start a project</p>
+<p><strong>2. Create a new repository</strong></p>
+<p>填写Repository name，选择Public/Private， 点击Create Repository</p>
+<p><strong>3. 获取链接</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sheldonyue/machineLearning.git">https://github.com/sheldonyue/machineLearning.git</a></p>
+<hr>
+<p><strong>4. 下载安装Git</strong></p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a><br>默认设置，一路Next</p>
+<p><strong>5. 检查Git安装</strong></p>
+<p>打开终端Command Prompt，输入git version</p>
+<p><strong>6. 创建项目</strong></p>
+<p>cd 项目路径<br>如：D:\AI\03RNN\AI-Writer-project</p>
+<p><strong>7. 配置Git</strong></p>
+<p>git config –global user.name ‘sheldonyue’ </p>
+<p>git config –global user.email ‘<a href="mailto:&#x73;&#104;&#x65;&#x6c;&#x64;&#111;&#110;&#x79;&#117;&#x65;&#x40;&#115;&#x69;&#x6e;&#97;&#x2e;&#99;&#111;&#x6d;">&#x73;&#104;&#x65;&#x6c;&#x64;&#111;&#110;&#x79;&#117;&#x65;&#x40;&#115;&#x69;&#x6e;&#97;&#x2e;&#99;&#111;&#x6d;</a>‘</p>
+<p><strong>7. 检查配置</strong></p>
+<p>git config -l</p>
+<p>查看最后两行name 和 email</p>
+<hr>
+<p><strong>8. 初始化本地仓库</strong></p>
+<p>git init</p>
+<p><strong>9. 关联远端Git仓库</strong></p>
+<p>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/sheldonyue/machineLearning.git">https://github.com/sheldonyue/machineLearning.git</a></p>
+<p>查看最后两行name 和 email</p>
+<p><strong>10. 查看本地项目文件夹变化</strong></p>
+<p>git status</p>
+<p><strong>11. 更新本地Git项目</strong></p>
+<p>git add *</p>
+<p>git commit -m “first commit”</p>
+<p>！注意：必须用双引号</p>
+<p><strong>12. 推送到远端</strong></p>
+<p>git push -u origin master</p>
+<p>说明：推送小于100MB的项目</p>
+<hr>
+<h3 id="Git-LFS上传大文件"><a href="#Git-LFS上传大文件" class="headerlink" title="Git-LFS上传大文件"></a>Git-LFS上传大文件</h3><p><i class="fa fa-arrow-circle-down" aria-hidden="true"> 教学步骤</i>：</p>
+<p><strong>1. 下载文件</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://git-lfs.github.com/</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 安装到git目录下</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Git\<span class="built_in">bin</span>\Git LFS</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. 上传大文件</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git init <span class="comment">#创建本地仓库环境</span></span><br><span class="line">git lfs install <span class="comment">#安装大文件上传应用</span></span><br><span class="line">git lfs track * <span class="comment">#追踪要上传的大文件，*表示路径下的所有文件</span></span><br><span class="line">git add .gitattributes <span class="comment">#添加先上传的属性文件(要先上传属性文件，不然有可能失败)</span></span><br><span class="line">git commit -m <span class="string">&quot;pre&quot;</span> <span class="comment">#添加属性文件上传的说明</span></span><br><span class="line">git remote add origin https://github.com/Youpeng-Zhang/MOP.git <span class="comment">#建立本地和Github仓库的链接</span></span><br><span class="line">git push origin master <span class="comment">#上传属性文件</span></span><br><span class="line">git add * <span class="comment">#添加要上传的大文件，*表示路径下的所有文件</span></span><br><span class="line">git commit -m <span class="string">&quot;Git LFS commit&quot;</span> <span class="comment">#添加大文件上传的说明</span></span><br><span class="line">git push origin master <span class="comment">#上传大文件</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Github获取开源项目"><a href="#Github获取开源项目" class="headerlink" title="Github获取开源项目"></a>Github获取开源项目</h3><p><i class="fa fa-arrow-circle-down" aria-hidden="true"> 教学步骤</i>：</p>
+<p><strong>1. Fork</strong></p>
+<p><strong>2. 修改文件</strong></p>
+<p>commit changes</p>
+<p><strong>3. 提交修改</strong></p>
+<p>菜单pull request， 点击New pull request， create pull request</p>
+<p><strong>4. 项目创建人收到 Pull request</strong></p>
+<p>Merge pull request，confirm merge</p>
+<hr>
+<h3 id="Github-Pages制作网站"><a href="#Github-Pages制作网站" class="headerlink" title="Github  Pages制作网站"></a>Github  Pages制作网站</h3><p><strong>1. 创建仓库</strong></p>
+<p>登录Github， 创建仓库名为username.github.io</p>
+<p>注意：username必须与你的用户名完全匹配</p>
+<p><strong>2. 创建网站</strong></p>
+<p>勾选Add a README file</p>
+<p><strong>3. 添加网站模板</strong></p>
+<p>点击setting， 找到Github pages， 点击choose a theme， 选择模板</p>
+<p><strong>4. 保存网站</strong></p>
+<p>点击commit changes</p>
+<hr>
+<h3 id="Github-Gridea建设网站"><a href="#Github-Gridea建设网站" class="headerlink" title="Github+ Gridea建设网站"></a>Github+ Gridea建设网站</h3><p><strong>1. 下载Gridea客户端</strong></p>
+<p><a target="_blank" rel="noopener" href="https://gridea.dev/">https://gridea.dev/</a></p>
+<p><strong>2. 获取个人访问令牌</strong></p>
+<p>点击Github头像， 点击Setting， 进入Develper settings，进入Personal access tokens<br>，生成新token， 输入Github密码， 输入token名称， 选择范围全部打勾，生成令牌</p>
+<p>保存好token: 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</p>
+<p><strong>3. Gridea与Github建立连接</strong></p>
+<p>点击远程， 输入Github域名， 仓库名称， 分支默认， Github用户名， Github用户名， Github邮箱</p>
+<p>保存， 检测远程连接， 成功后点击同步，检查Github仓库是否多出一些文件夹。</p>
+<p><strong>4. 美化网站</strong></p>
+<p>选择主题，网站相关信息更新</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fb4y1Y7e4/?spm_id_from=333.788.recommend_more_video.7">https://www.bilibili.com/video/BV1Fb4y1Y7e4/?spm_id_from=333.788.recommend_more_video.7</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.bilibili.com/video/BV1ME41147bv/?spm_id_from=<span class="number">333.788</span>.recommend_more_video.-<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="提高Github访问速度"><a href="#提高Github访问速度" class="headerlink" title="提高Github访问速度"></a>提高Github访问速度</h3><p><strong>1. 修改hosts</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Windows hosts目录：C:\windows\system32\drivers\etc\</span><br><span class="line">    </span><br><span class="line"><span class="comment"># Github</span></span><br><span class="line"><span class="number">192.30</span><span class="number">.253</span><span class="number">.113</span> github.com</span><br><span class="line"><span class="number">151.101</span><span class="number">.185</span><span class="number">.194</span> github.<span class="keyword">global</span>.ssl.fastly.net</span><br><span class="line"><span class="number">203.98</span><span class="number">.7</span><span class="number">.65</span> gist.github.com</span><br><span class="line"><span class="number">13.229</span><span class="number">.189</span><span class="number">.0</span> codeload.github.com</span><br><span class="line"><span class="number">185.199</span><span class="number">.109</span><span class="number">.153</span> desktop.github.com </span><br><span class="line"><span class="number">185.199</span><span class="number">.108</span><span class="number">.153</span> guides.github.com  </span><br><span class="line"><span class="number">185.199</span><span class="number">.108</span><span class="number">.153</span> blog.github.com</span><br><span class="line"><span class="number">18.204</span><span class="number">.240</span><span class="number">.114</span> status.github.com</span><br><span class="line"><span class="number">185.199</span><span class="number">.108</span><span class="number">.153</span> developer.github.com</span><br><span class="line"><span class="number">185.199</span><span class="number">.108</span><span class="number">.153</span> services.github.com</span><br><span class="line"><span class="number">192.30</span><span class="number">.253</span><span class="number">.175</span> enterprise.github.com   </span><br><span class="line"><span class="number">34.195</span><span class="number">.49</span><span class="number">.195</span> education.github.com    </span><br><span class="line"><span class="number">185.199</span><span class="number">.108</span><span class="number">.153</span> pages.github.com  </span><br><span class="line"><span class="number">34.196</span><span class="number">.237</span><span class="number">.103</span> classroom.github.com</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 刷新DNS网页缓存</strong></p>
+<p>DNS网页缓存刷新CMD指令：ipconfig /flushdns</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.bilibili.com/video/BV1Fb4y1Y7e4/?spm_id_from=<span class="number">333.788</span>.recommend_more_video<span class="number">.7</span></span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+    
+      <a class="nav-right" href="/2022/04/26/NumPy%20%E7%99%BE%E9%A2%98%E5%A4%A7%E5%86%B2%E5%85%B3%EF%BD%9C%E5%AD%A6%E4%B9%A0%E7%89%88/">
+        
+          Blog模板 | NumPy 百题大冲关｜学习版
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-nav-text">介绍</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Github-Desk%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C"><span class="toc-nav-text">Github Desk简单操作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Git%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C"><span class="toc-nav-text">Git简单操作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Git-LFS%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6"><span class="toc-nav-text">Git-LFS上传大文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Github%E8%8E%B7%E5%8F%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE"><span class="toc-nav-text">Github获取开源项目</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Github-Pages%E5%88%B6%E4%BD%9C%E7%BD%91%E7%AB%99"><span class="toc-nav-text">Github  Pages制作网站</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Github-Gridea%E5%BB%BA%E8%AE%BE%E7%BD%91%E7%AB%99"><span class="toc-nav-text">Github+ Gridea建设网站</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8F%90%E9%AB%98Github%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6"><span class="toc-nav-text">提高Github访问速度</span></a>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://example.com/2022/04/26/Git &amp; GitHub使用指南/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2022 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/learningaitogether">learningaitogether</a>
+    
+  </p>
+
+
+<p class = "busuanzi">
+
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</p>
+
+
+  
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </body>
+</html>
